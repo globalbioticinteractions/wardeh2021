@@ -1,0 +1,50 @@
+{
+  "@context" : [ "http://www.w3.org/ns/csvw", {
+    "@language" : "en"
+  } ],
+  "rdfs:comment" : [ "inspired by https://www.w3.org/TR/2015/REC-tabular-data-model-20151217/" ],
+  "tables" : [ {
+    "@context" : [ "http://www.w3.org/ns/csvw", {
+      "@language" : "en"
+    } ],
+    "rdfs:comment" : [ "inspired by https://www.w3.org/TR/2015/REC-tabular-data-model-20151217/" ],
+    "url" : "mammals_viruses.tsv",
+    "dcterms:bibliographicCitation" : "Wardeh, M., Baylis, M. & Blagrove, M.S.C. Predicting mammalian hosts in which novel coronaviruses can be generated. Nat Commun 12, 780 (2021). https://doi.org/10.1038/s41467-021-21034-5",
+    "doi" : "10.1038/s41467-021-21034-5",
+    "delimiter" : "\t",
+    "headerRowCount" : 1,
+    "interactionTypeName" : "hasHost",
+    "interactionTypeId" : "http://purl.obolibrary.org/obo/RO_0002454",
+    "null" : [ "" ],
+    "tableSchema" : {
+      "columns" : [ {
+        "name" : "sourceTaxonName",
+        "titles" : "virus",
+        "datatype" : "string"
+      }, {
+        "name" : "sourceTaxonId",
+        "titles" : "virusid",
+        "datatype": {
+          "base" : "string",
+          "valueUrl" : "NCBI:txid{sourceTaxonId}"
+        }
+      }, {
+        "name" : "targetTaxonName",
+        "titles" : "host",
+        "datatype" : "string"
+      }, {
+        "name" : "targetTaxonId",
+        "titles" : "hostid",
+        "datatype": {
+          "base" : "string",
+          "valueUrl" : "NCBI:txid{targetTaxonId}"
+        }
+
+      }, {
+        "name" : "coronavirus",
+        "titles" : "coronavirus",
+        "datatype" : "string"
+      } ]
+    }
+  } ]
+}
